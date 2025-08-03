@@ -21,18 +21,6 @@ Return the sorted list
 
 """
 
-import time
-import random
-
-
-def generate_list(max):
-    n_list = []
-    for i in range(0,max):
-        n_list.append(i)
-    random.shuffle(n_list)
-    return n_list
-
-# code : 
 def bubble_sort(nums):
     n = len(nums)
     for i in range(n):
@@ -44,10 +32,3 @@ def bubble_sort(nums):
         if not swapped:
             break  
     return nums
-
-
-start = time.time()
-l = generate_list(10000)
-l = bubble_sort(l)
-end = time.time()
-print("Durée :", end - start, "secondes")

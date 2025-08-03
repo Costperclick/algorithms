@@ -5,17 +5,6 @@ j = key_alue of current index, it's the value we want to sort
 j-1 = sorted_index, it's the index of the value just before j, and we always compare sorted_index with key_value
 """
 
-import time
-import random
-
-
-def generate_list():
-    n_list = []
-    for i in range(0,10000):
-        n_list.append(i)
-    random.shuffle(n_list)
-    return n_list
-
 def insertion_sort(nums):
     for current_index in range(1, len(nums)):
         key_value = nums[current_index]
@@ -29,14 +18,3 @@ def insertion_sort(nums):
         
     return nums
  
-
-a = generate_list()
-a = insertion_sort(a)
-print(a)
-
-
-start = time.time()  
-insertion_sort(a)  
-end = time.time() 
-
-print("Durée :", end - start, "secondes")

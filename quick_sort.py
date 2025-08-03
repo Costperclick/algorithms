@@ -35,26 +35,16 @@ Notes on performance:
 """
 
 
-import random
-import time
-
-
-def create_list(list_lenght):
-    new_list = []
-    for i in range(0, list_lenght):
-        new_list.append(i)
-    random.shuffle(new_list)
-    return new_list
-
-
 def quick_sort(l, low, high):
     if low < high:
         middle = partition(l, low, high)
         quick_sort(l, low, middle - 1)
         quick_sort(l, middle + 1, high)
-
+        
         
 def partition(l, low, high):
+    pivot_index = (low + high) // 2
+    l[pivot_index], l[high] = l[high], l[pivot_index]  # swap pour mettre le pivot à la fin
     pivot = l[high]
     i = low - 1
     for j in range(low, high):
@@ -63,14 +53,4 @@ def partition(l, low, high):
             l[i], l[j] = l[j], l[i]
     l[i + 1], l[high] = l[high], l[i + 1]
     return i + 1
-
-
-# ===== TESTING ======
-start = time.time()
-foo = create_list(1000000)
-foo_sorted = quick_sort(foo, 0, len(foo)-1)
-print(foo)
-end = time.time()
-print("Sort took", {end - start}, "seconds")
-
 
