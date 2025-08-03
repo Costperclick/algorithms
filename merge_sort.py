@@ -38,7 +38,7 @@ Return the final list.
 
 """
 import random
-
+import time
 
 # Merge sort algorithm : 
 
@@ -93,14 +93,19 @@ def merge(left_sorted, right_sorted):
 # ======= USE FOR TESTING ========  
 def create_list(): # Use it for testing, don't bother writing a random list 
     foo = []
-    for i in range(0,100):
+    for i in range(0,1000000):
         foo.append(i)
     random.shuffle(foo)
     return foo
 
 l = create_list()
 a = merge_sort(l)
-print(a)
+
+
+start = time.time()
+merge_sort(l)
+end = time.time()
+print("Durée :", end - start, "secondes")
 
 
     
